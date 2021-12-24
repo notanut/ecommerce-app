@@ -1,0 +1,96 @@
+@import "../Utilities/mixins";
+@import "../Utilities/variables";
+
+.mobile {
+  background: $white;
+  @include flex(row, space-between, center);
+  overflow-y: hidden;
+
+  & > * {
+    cursor: pointer;
+  }
+
+  &__west {
+    @include flex(row, space-evenly, center);
+    gap: 1rem;
+  }
+
+  &__east {
+    @include flex(row, space-around, center);
+    gap: 1.5rem;
+    overflow-x: hidden;
+
+    .cart__wrapper {
+      @include flex(row, center, center);
+    }
+
+    .profile {
+      max-width: 2.5rem;
+      height: auto;
+      transition: 0.3s all;
+    }
+  }
+
+  .navlist {
+    top: 0;
+    left: 0;
+    background-color: $white;
+    position: fixed;
+    z-index: 3;
+    height: 100%;
+    width: 15.625rem;
+    padding: 1.5rem;
+    @include flex(column, flex-start, flex-start);
+    gap: 3.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-16rem);
+
+
+    &.open {
+      transform: translateX(0);
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include flex(column, flex-start, flex-start);
+      gap: 2rem;
+
+      li {
+        font-weight: $f-bold;
+        color: $very-dark-blue;
+      }
+    }
+  }
+
+  .overlay {
+    overflow: hidden;
+    position: fixed;
+    background-color: $lightbox-bg;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(60rem);
+    transition: 0.3s all ease-in-out;
+
+    &.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+}
+
+
+@media (max-width: 550px) {
+  .mobile {
+    &__east {
+      .profile {
+        max-width: 2rem;
+      }
+    }
+  }
+}

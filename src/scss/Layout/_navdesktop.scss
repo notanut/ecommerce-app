@@ -1,0 +1,97 @@
+@import "../Utilities/mixins";
+@import "../Utilities/variables";
+
+header {
+  padding: 1rem 1.5rem;
+  color: $dark-grayish-blue;
+
+  .cart {
+    color: $dark-grayish-blue;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $very-dark-blue;
+    }
+  }
+}
+
+.desktop {
+  @include flex(row, space-between, center);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  max-width: 69.5rem;
+  border-bottom: 1px solid $grayish-blue;
+  overflow: hidden;
+
+    & > * {
+    cursor: pointer;
+  }
+
+  &__west {
+    @include flex(row, space-between, center);
+
+    .border-bottom {
+      position: absolute;
+      top: 7.25rem;
+      height: 5px;
+      width: 5rem;
+      background-color: $orange;
+      transition: all 0.3s ease 0s;
+      transform: scaleX(0);
+    }
+
+    ul {
+      @include flex(row, space-between, center);
+      gap: 2rem;
+      list-style: none;
+
+      li {
+        transition: color 0.3s ease-in;
+        &:hover {
+          color: $very-dark-blue;
+        }
+        &:nth-child(1):hover ~ .border-bottom {
+          transform: scaleX(1);
+        }
+
+        &:nth-child(2):hover ~ .border-bottom {
+          transform: scaleX(0.75) translateX(7.5rem);
+        }
+        &:nth-child(3):hover ~ .border-bottom {
+          transform: scaleX(0.85) translateX(12.5rem);
+        }
+        &:nth-child(4):hover ~ .border-bottom {
+          transform: scaleX(0.85) translateX(18.75rem);
+        }
+        &:nth-child(5):hover ~ .border-bottom {
+          transform: scaleX(0.85) translateX(25rem);
+        }
+      }
+    }
+  }
+
+  &__east {
+    @include flex(row, space-between, center);
+    gap: 2rem;
+
+    .cart__wrapper {
+      position: relative;
+      @include flex(row, center, center);
+    }
+
+    .profile {
+      max-width: 50px;
+      height: auto;
+    }
+  }
+}
+
+.profile {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  transition: 0.3s all;
+
+  &:hover {
+    border: 3px solid $orange;
+  }
+}

@@ -1,0 +1,124 @@
+@import "../Utilities/mixins";
+@import "../Utilities/variables";
+
+.cart-container {
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  font-size: 1rem;
+  font-weight: $f-bold;
+  box-shadow: 0px 10px 19px -6px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  height: 15.625rem;
+  width: 22.5rem;
+  @include flex(column, center, inherit);
+  transition: all 0.3s ease-in-out;
+
+  &.hidden {
+    height: 0px;
+  }
+
+  .title {
+    width: 100%;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(182, 188, 200, 0.5);
+    span {
+      padding: 20px 25px;
+      color: $very-dark-blue;
+    }
+  }
+
+  .section {
+    padding: 20px 25px;
+    @include flex(row, center, center);
+    height: 100%;
+
+    .empty {
+      text-align: center;
+      font-weight: $f-bold;
+    }
+
+    .info,
+    .checkout-btn {
+      display: none;
+    }
+
+    &.active {
+      flex-direction: column;
+      gap: 1rem;
+
+      .empty {
+        display: none;
+      }
+
+      .info {
+        @include flex(row, space-between, center);
+        gap: 1rem;
+        width: 100%;
+
+        .thumbnail {
+          max-width: 50px;
+          height: auto;
+          border-radius: 5px;
+        }
+
+        .detail {
+          @include flex(column, space-between, flex-start);
+
+          .prices {
+            span {
+              font-weight: $f-reg;
+            }
+
+            strong {
+              color: $very-dark-blue;
+            }
+          }
+        }
+
+        .clear {
+          cursor: pointer;
+        }
+      }
+
+      .checkout-btn {
+        @include flex(row, center, center);
+        @include button($orange);
+        color: $white;
+        padding: 1rem;
+        width: 100%;
+        border-radius: 10px;
+        transition: opacity 0.3s ease-in;
+
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 925px) {
+  .cart-container {
+    right: 1rem;
+    top: 6.875rem;
+  }
+}
+
+@media screen and (max-width: 925px) {
+  .cart-container {
+    right: 1rem;
+    top: 5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cart-container {
+    top: 4.375rem;
+    right: 9px;
+    max-width: 100%;
+    width: 95vw;
+  }
+}

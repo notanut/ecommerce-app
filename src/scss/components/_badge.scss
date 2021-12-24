@@ -1,0 +1,21 @@
+@import "../Utilities/mixins";
+@import "../Utilities/variables";
+
+.badge {
+  position: absolute;
+  background-color: $orange;
+  @include flex(row, center, center);
+  padding: 1px 8.5px;
+  border-radius: 10px;
+  transform: translate(8px, -8px);
+
+  &.hidden {
+    display: none;
+  }
+
+  label {
+    color: $white;
+    font-weight: $f-bold;
+    font-size: 9px;
+  }
+}

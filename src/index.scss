@@ -1,0 +1,17 @@
+@import "./scss/Base/reset";
+
+@import "./scss/Base/typography";
+
+@import "./scss/Layout/navdesktop";
+@import "./scss/Layout/navmobile";
+@import "./scss/Layout/galleryImg";
+@import "./scss/Layout/description";
+
+@import "./scss/components/badge";
+@import "./scss/components/cart";
+@import "./scss/components/lightbox";
+
+body {
+    transition: all .3s ease;
+    overflow-x: hidden;
+}

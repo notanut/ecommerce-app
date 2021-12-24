@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import "../Utilities/variables";
+
+body {
+    font-family: $fm;
+    background-color: $white;
+
+    p {
+        font-size: $fs;
+        font-weight: $f-reg;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: $f-bold;
+    }
+}

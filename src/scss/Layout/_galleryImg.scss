@@ -1,0 +1,125 @@
+@import "../Utilities/mixins";
+@import "../Utilities/variables";
+
+main {
+  margin: 0 auto;
+  max-width: 63.375rem;
+  padding: 2rem;
+  @include flex(row, space-between, center);
+  gap: 5rem;
+  overflow: hidden;
+}
+
+.gallery {
+  @include flex(column, space-between, normal);
+  gap: 2rem;
+
+  .thumbnail {
+    cursor: pointer;
+    max-width: 27.8125rem;
+    border-radius: 10px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .prev,
+  .next {
+    display: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__images {
+    @include flex(row, space-between, center);
+    padding: 0;
+    margin: 0;
+
+    &__wrapper {
+      border-radius: 10px;
+      overflow: hidden;
+
+      &.active {
+        border: 3px solid $orange;
+      }
+      img {
+        cursor: pointer;
+        max-width: 5.5rem;
+        transition: opacity 0.3s ease-in;
+
+        &.active {
+          opacity: 0.5;
+        }
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 925px) {
+  main {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  .gallery {
+    max-width: none;
+    width: 100%;
+    margin: 0 0;
+    flex-direction: row;
+
+    .thumbnail {
+      max-height: 31.25rem;
+      object-fit: cover;
+      max-width: none;
+      width: 100%;
+      padding: 0;
+      border-radius: 0;
+      transition: all 0.3s;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      display: flex;
+      background-color: $white;
+      border-radius: 50%;
+      padding: 13px 16px;
+      transform: translateY(500%);
+    }
+
+    .prev {
+      left: 1rem;
+    }
+
+    .next {
+      right: 1rem;
+    }
+
+    &__images {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .gallery {
+    .thumbnail {
+      max-height: 18.75rem;
+    }
+
+    .prev,
+    .next {
+      transform: translateY(300%);
+    }
+  }
+}
