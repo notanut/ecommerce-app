@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from "react"
 
 const CountProductContext = React.createContext()
-const CarouselProductContext = React.createContext()
 
 const initialState = 0
 const reducer = (state, action) => {
@@ -72,4 +71,4 @@ const CountProductProvider = (props) => {
     )
 }
 
-export { CountProductContext, CarouselProductContext, CountProductProvider }
+export { CountProductContext, CountProductProvider }

@@ -42,7 +42,6 @@ const GalleryImg = () => {
                     ))}
                 </article>
             </section>
-
             {countProduct.lightboxOpen ? <Lightbox /> : ''}
         </>
     )

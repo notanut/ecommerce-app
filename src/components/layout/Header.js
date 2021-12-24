@@ -12,7 +12,6 @@ const Header = () => {
     return (
         <header>
             {width <= 925 ? <NavMobile /> : <NavDesktop />}
- 
         </header>
     )
 }
